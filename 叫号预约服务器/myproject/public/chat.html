@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="javascripts/jquery.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+ var socket=io.connect();
+ socket.on('welcome',function(data){
+	    console.log(data.text);
+	 });
+
+ socket.on('user message',function(data){
+	 
+	    console.log(data);
+	 
+	 });
+	 
+ $(function(){
+	 
+     var globalCounter=0;
+	 
+	 $("#btn_send").click(function(){
+		 
+		 console.log("clicked!!");
+		 
+		 socket.emit('username',$("#username").val());
+		 
+		 });
+		
+	   $("#btn_pre").click(function(){
+		   
+		    if(globalCounter>0)
+			{
+		      globalCounter=globalCounter-1;
+			}
+			
+			$("#currentNo").html(globalCounter);
+		   
+		   });
+		 
+	 $("#btn_next").click(function(){
+		   
+		
+		      globalCounter=globalCounter+1;
+	
+			
+			$("#currentNo").html(globalCounter);
+		   
+		   });
+
+      $("#btn_set").click(function(){
+		   
+		
+		     /* globalCounter=Number($("#reset_no").val());
+	
+			
+			$("#currentNo").html(globalCounter);*/
+		   	var CompanyName="#MALI";
+			var CurrentNo=$("#reset_no").val();
+			$.post(
+		      "/Broadcast",//目标URL
+			  {CompanyName:CompanyName,CurrentNo:CurrentNo},//参数JSON {名:值}
+			  function(data){
+				  
+				  alert(data);
+				  }//回调函数
+		   
+		   );
+		   });
+		 
+	  $("#btn_broadcast").click(function(){
+		 
+		    
+		 /*
+		    $.get("./testBroadcast",
+			     {CompanyName:"CompanyName",CurrentNo:globalCounter}
+				 ,function(data){
+				
+				  console.log(data);
+				
+				});
+				*/
+			socket.emit('clientBroadcast',{no:globalCounter,company:"马沥必胜客"});	
+				 
+		 });
+		 
+		 
+	 
+	 });
+	 
+	
+	 
+
+
+ 
+
+</script>
+</head>
+
+<body style="text-align:'center'">
+<div>
+<p><font style="font-size:32px; color:#00F;">必胜客马沥村分店叫号系统</font></p>
+</div>
+<div>
+<p><font style="font-size:80px; color:#FF0000;" id="currentNo">0</font></p>
+</div>
+<br/>
+<input type="button" id="btn_pre" value="上一位" /><input type="button" id="btn_next" value="下一位" />
+<br/>
+<input type="text" id="reset_no" value="" style="width:120px;" /><input type="button" id="btn_set" value="设置" />
+<br/>
+<input style="width:120px; height:50px;" type="button" id="btn_broadcast" value="广播叫号" />
+</body>
+</html>

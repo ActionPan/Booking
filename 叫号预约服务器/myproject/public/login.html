@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="javascripts/jquery.js"></script>
+<script type="text/jscript">
+
+$(function(){
+	
+	//赋予这个按钮单击有响应的处理函数
+	$("#sub").click(function(){
+		
+		var userName=$("#username").val();
+		var passWord=$("#password").val();
+		var Type=$("#type").val();
+		//第一步
+		$.post(
+		      "/login",//目标URL
+			  {username:userName,password:passWord,type:Type},//参数JSON {名:值}
+			  function(data){
+				  alert(data);
+				  }//回调函数
+		   
+		   );
+		});
+	
+	});
+
+</script>
+</head>
+
+<body>
+<table>
+  <tr>
+    <td>username:</td>
+    <td><input type="text" id="username"  /></td>
+  </tr>
+  <tr>
+    <td>password:</td>
+    <td><input type="text" id="password"  /></td>
+  </tr>
+   <td>type:</td>
+    <td><input type="text" id="type"  /></td>
+  <tr>
+    <td><input type="button" value="提交" id="sub" /></td>
+    <td><input type="button" value="取消" id="ex" /></td>
+  </tr>
+</table>
+
+</body>
+</html>
