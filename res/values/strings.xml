@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">潘瑞港</string>
+	<string name="finish">退出程序</string>
+    <string name="isExit">退出登录</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>

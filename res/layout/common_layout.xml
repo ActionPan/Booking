@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/count_linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00BFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="3dp" >
+
+        <ImageView
+            android:id="@+id/count_image1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/btn" />
+
+        <TextView
+            android:id="@+id/count_textView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="8"
+            android:gravity="center"
+            android:text="可预约餐厅"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/count_image2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:background="@drawable/nowplaying" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="2dp" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="4"
+            android:background="@drawable/manage_textbg"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="亲爱的客户，数据正在加载，请稍后..." />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/serviceimg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/service" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3" >
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+        <RelativeLayout
+        android:id="@+id/ll_lowwarn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="1dp"
+        android:layout_weight="3"
+        android:layout_gravity="center"
+        android:background="@drawable/singleline_item_bg"
+        android:minHeight="45dp" >
+
+        <TextView
+            android:id="@+id/tv_pre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="关键字:"
+            android:textColor="#babbbb"
+            android:textSize="20dp" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_alignBaseline="@+id/tv_pre"
+            android:layout_alignBottom="@+id/tv_pre"
+            android:layout_toRightOf="@+id/tv_pre"
+            android:background="@null"
+            android:ems="10" />
+
+    </RelativeLayout>
+      
+        <Button
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="1dp"
+             android:layout_marginRight="1dp"
+            android:background="@drawable/login_btn"
+            android:text="搜索"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+</LinearLayout>
